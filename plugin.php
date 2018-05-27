@@ -6,7 +6,7 @@
     This file contains the SearchWidget plugin. It provides a widget that prints a search form.
 
     @package urlaube\searchwidget
-    @version 0.1a0
+    @version 0.1a1
     @author  Yahe <hello@yahe.sh>
     @since   0.1a0
   */
@@ -17,14 +17,14 @@
   if (!defined("URLAUBE")) { die(""); }
 
   if (!class_exists("SearchWidget")) {
-    class SearchWidget implements Plugin {
+    class SearchWidget extends Translatable implements Plugin, Translation {
 
       // RUNTIME FUNCTIONS
 
-      public static function plugin() {
+      public function plugin() {
         $result = new Content();
 
-        $result->set(TITLE,   "Suche");
+        $result->set(TITLE,   gl("Suche"));
         $result->set(CONTENT, "<form action=\"".html(Main::ROOTURI()."search/")."\" id=\"searchwidget\" method=\"post\">".NL.
                               "  <div class=\"input-group\">".NL.
                               "    <input class=\"form-control\" name=\"search\" type=\"text\">".NL.
@@ -41,7 +41,11 @@
 
     }
 
+    // instantiate translatable handler
+    $plugin = new SearchWidget();
+    $plugin->setTranslationsPath(__DIR__.DS."lang".DS);
+
     // register plugin
-    Plugins::register("SearchWidget", "plugin", ON_WIDGETS);
+    Plugins::register($plugin, "plugin", ON_WIDGETS);
   }
 
