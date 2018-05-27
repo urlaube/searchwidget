@@ -41,7 +41,7 @@
 
     }
 
-    // instantiate translatable handler
+    // instantiate translatable plugin
     $plugin = new SearchWidget();
     $plugin->setTranslationsPath(__DIR__.DS."lang".DS);
 
