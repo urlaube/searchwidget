@@ -34,7 +34,7 @@
                                     "      </span>".NL.
                                     "  </div>".NL.
                                     "</form>",
-                                    Main::ROOTURI()."search/");
+                                    Main::ROOTURI()."search/"));
         $result->set(TITLE,   t("Suche", "SearchWidget"));
 
         return $result;
