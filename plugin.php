@@ -7,7 +7,7 @@
     a search form.
 
     @package urlaube\searchwidget
-    @version 0.1a3
+    @version 0.1a4
     @author  Yahe <hello@yahe.sh>
     @since   0.1a0
   */
@@ -35,7 +35,7 @@
                                   "  </div>".NL.
                                   "</form>",
                                   SearchHandler::getUriPost(new Content())));
-      $result->set(TITLE,   t("Suche", SearchWidget::class));
+      $result->set(TITLE,   t("Suche", static::class));
 
       return $result;
     }
